@@ -1,4 +1,4 @@
-name: run_test
+name: run_latest_python
 
 on:
   workflow_dispatch:
