@@ -1,0 +1,38 @@
+name: run_test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test_my_fork:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # enables push access
+          persist-credentials: true
+
+      - name: Set up latest Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.9.12'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas==2.0.3
+          pip install numpy==1.22.1
+          pip install git+https://github.com/svenbuder/AnniesLasso.git@master
+
+      - name: Run test_cannon_andy.py
+        run: |
+          python test_cannon_andy.py
+
+      - name: Commit and push generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prospect_model.model prospect_model_restricted.model
+          git commit -m "Auto-update models" || echo "No changes to commit"
+          git push
