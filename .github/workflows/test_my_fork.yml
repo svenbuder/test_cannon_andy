@@ -17,12 +17,12 @@ jobs:
       - name: Set up latest Python
         uses: actions/setup-python@v5
         with:
-          python-version: '3.9.12'
+          python-version: '3.9'
 
       - name: Install dependencies
         run: |
           pip install pandas
-          pip install numpy==1.23.5
+          pip install numpy
           pip install git+https://github.com/svenbuder/AnniesLasso.git@master
 
       - name: Run test_cannon_andy.py
@@ -33,7 +33,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/svenbuder/test_cannon_andy.git
           git add prospect_model.model prospect_model_restricted.model
           git commit -m "Auto-update models" || echo "No changes to commit"
-          git push origin HEAD
+          git push
