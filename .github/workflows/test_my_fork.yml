@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  test_older_numpy:
+  test_my_fork:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,9 +20,8 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install pandas
-          pip install numpy==1.23.5
-          pip install https://github.com/andycasey/AnniesLasso/archive/master.zip
+          pip install pandas numpy
+          pip install https://github.com/svenbuder/AnniesLasso.git@master
 
       - name: Run test_cannon_andy.py
         run: |
