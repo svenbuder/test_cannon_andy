@@ -27,9 +27,9 @@ jobs:
           pip install six==1.16.0
           pip install --no-deps git+https://github.com/svenbuder/AnniesLasso.git@master
 
-      - name: Run test_cannon_andy.py
+      - name: Run test_cannon_andy_svens_python.py
         run: |
-          python test_cannon_andy.py
+          python test_cannon_andy_svens_python.py
 
       - name: Commit and push generated files
         run: |
