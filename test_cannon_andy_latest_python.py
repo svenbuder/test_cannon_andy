@@ -56,7 +56,7 @@ prospect_test_labels, prospect_test_cov, prospect_metadata = prospect_model.test
 # In[ ]:
 
 
-prospect_model.write('prospect_model.model',overwrite=True)
+prospect_model.write('prospect_model_latest_python.model',overwrite=True)
 
 
 # In[ ]:
@@ -80,5 +80,5 @@ prospect_test_labels_restricted, prospect_test_cov_restricted, prospect_metadata
 # In[ ]:
 
 
-prospect_model_restricted.write('prospect_model_restricted.model',overwrite=True)
+prospect_model_restricted.write('prospect_model_restricted_latest_python.model',overwrite=True)
 
