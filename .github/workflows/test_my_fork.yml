@@ -35,4 +35,4 @@ jobs:
           git remote set-url origin https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/svenbuder/test_cannon_andy.git
           git add prospect_model.model prospect_model_restricted.model
           git commit -m "Auto-update models" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/svenbuder/test_cannon_andy.git
+          git push origin HEAD
