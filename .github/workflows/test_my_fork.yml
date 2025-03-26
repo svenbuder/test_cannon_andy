@@ -21,7 +21,7 @@ jobs:
       - name: Install dependencies
         run: |
           pip install pandas
-          pip install numpy=1.23.5
+          pip install numpy==1.23.5
           pip install git+https://github.com/svenbuder/AnniesLasso.git@master
 
       - name: Run test_cannon_andy.py
