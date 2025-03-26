@@ -35,6 +35,6 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add prospect_model.model prospect_model_restricted.model
+          git add prospect_model_svens_python.model prospect_model_restricted_svens_python.model
           git commit -m "Auto-update models" || echo "No changes to commit"
           git push
