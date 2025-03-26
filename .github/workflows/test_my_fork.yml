@@ -1,4 +1,4 @@
-name: Install Andys Cannon, Train, Test and Commit Results
+name: run_test
 
 on:
   workflow_dispatch:
