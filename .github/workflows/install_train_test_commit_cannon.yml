@@ -1,0 +1,36 @@
+name: Install Andys Cannon, Train, Test and Commit Results
+
+on:
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}  # enables push access
+
+      - name: Set up latest Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: |
+          pip install pandas numpy
+          pip install https://github.com/andycasey/AnniesLasso/archive/master.zip
+
+      - name: Run test_cannon_andy.py
+        run: |
+          python test_cannon_andy.py
+
+      - name: Commit and push generated files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add prospect_model.model prospect_model_restricted.model
+          git commit -m "Auto-update models" || echo "No changes to commit"
+          git push
