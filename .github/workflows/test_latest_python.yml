@@ -25,9 +25,9 @@ jobs:
           pip install numpy
           pip install git+https://github.com/svenbuder/AnniesLasso.git@master
 
-      - name: Run test_cannon_andy.py
+      - name: Run test_cannon_andy_latest_python.py
         run: |
-          python test_cannon_andy.py
+          python test_cannon_andy_latest_python.py
 
       - name: Commit and push generated files
         run: |
